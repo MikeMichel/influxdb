@@ -88,7 +88,7 @@ if [ -n "${UDP_PORT}" ]; then
 fi
 
 if [ "${AUTH_ENABLED}" == "true" ]; then
-    sed -i -r -e "/auth-enabled/ s/false/true/" ${CONFIG_FILE}
+    sed -i -r -e "/^\[http\]/, /^auth-enabled/ {s/false/true/}" ${CONFIG_FILE}
 fi
 
 echo "influxdb configuration: "
